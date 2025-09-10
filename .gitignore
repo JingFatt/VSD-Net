@@ -1,0 +1,13 @@
+# Python 缓存文件
+__pycache__/
+*.pyc
+*.pyo
+
+# 临时文件
+*.log
+*.tmp
+
+# 数据集或大文件
+UIEB_Code
+fix_notebook
+New Text Document
