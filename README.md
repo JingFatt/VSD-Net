@@ -25,7 +25,7 @@ This repository contains the **VSD-Net** notebook for underwater image enhanceme
 4. Make sure you have access to the dataset if needed (or download it from your local storage).  
 5. Run the notebook cells sequentially.  
 
-> You can also use the direct link to download the notebook:  
+> You can also use the direct link to download or open the notebook:  
 > [VSD-Net Notebook Link](https://drive.google.com/file/d/1uGB05mJPspq_Weok6m_oJXlitISwKo5z/view?usp=sharing)
 
 ---
@@ -35,4 +35,59 @@ This repository contains the **VSD-Net** notebook for underwater image enhanceme
 1. Clone this repository or download as ZIP and extract:  
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/JingFatt/VSD-Net.git
+
+```
+---
+## 📌 Requirements
+
+All required Python packages are listed in `requirements.txt`.  
+You can install them automatically by running:
+
+```bash
+pip install -r requirements.txt
+```
+---
+## Datasets
+
+Make sure you have downloaded the correct **UIEB dataset**.
+
+To avoid errors, organize your files and folders like this:
+
+- `metrics/` — folder to store evaluation metrics  
+- `model_plot/` — folder for model and some visualization plots  
+- `Results_test/` — folder to save test results  
+- `Results_valid/` — folder to save validation results  
+- `UIEB/` — the UIEB dataset
+  - `challenging-60/` — images for testing difficult cases  
+  - `raw-890/` — raw underwater images for training  
+  - `reference-890/` — corresponding reference images for training
+
+## Results / Showcase
+
+We evaluated three transformer-based variants of our model for underwater image enhancement: **Hybrid (ViT + Swin)**, **ViT only**, and **Swin only**.  
+
+Below are **3 sets of 7×7 output grids** showing enhanced images for each variant:
+
+### 1. Hybrid (ViT + Swin)
+![Hybrid Output](results_hybrid.png)
+
+### 2. ViT only
+![ViT Output](results_vit.png)
+
+### 3. Swin only
+![Swin Output](results_swin.png)
+
+### Quantitative Evaluation
+
+| Model Variant          | PSNR ↑ | SSIM ↑ | UIQM ↑ | LPIPS ↓ |
+|------------------------|--------|--------|--------|---------|
+| UNet + Swin + ViT      | 17.09  | 0.7125 | 1.0726 | 0.2828  |
+| UNet + ViT             | 17.00  | 0.7144 | 0.6966 | 0.2961  |
+| UNet + Swin            | 16.39  | 0.6958 | 1.0919 | 0.3036  |
+
+
+- The **Hybrid (ViT + Swin)** variant successfully combines the strengths of both transformers, producing visually pleasing results with balanced color and structure.  
+- Using **ViT only** preserves structural details but may slightly underperform in overall color enhancement.  
+- Using **Swin only** emphasizes texture and local features but can miss some global consistency.  
+- Overall, combining both transformers with UNet yields the most robust underwater image enhancement.
