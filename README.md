@@ -1,4 +1,4 @@
-# VSD-Net: Underwater Image Enhancement Notebook
+# VSD-Net: Underwater Image Enhancement
 
 This repository contains the **VSD-Net** notebook for underwater image enhancement.  
 
@@ -70,15 +70,21 @@ We evaluated three transformer-based variants of our model for underwater image 
 Below are **3 sets of 7×7 output grids** showing enhanced images for each variant:
 
 ### 1. Hybrid (ViT + Swin)
-![Hybrid Output](results_hybrid.png)
+<img src="results/Hybrid.png" width="400">
 
 ### 2. ViT only
-![ViT Output](results_vit.png)
+<img src="results/ViT_only.png" width="400">
 
 ### 3. Swin only
-![Swin Output](results_swin.png)
+<img src="results/Swin_only.png" width="400">
 
-### Quantitative Evaluation
+### 4. Evaluation
+
+<div align="center">
+
+<img src="results/Comparison.png" width="800" alt="Comparison Results">
+
+<br>
 
 | Model Variant          | PSNR ↑ | SSIM ↑ | UIQM ↑ | LPIPS ↓ |
 |------------------------|--------|--------|--------|---------|
@@ -86,6 +92,11 @@ Below are **3 sets of 7×7 output grids** showing enhanced images for each varia
 | UNet + ViT             | 17.00  | 0.7144 | 0.6966 | 0.2961  |
 | UNet + Swin            | 16.39  | 0.6958 | 1.0919 | 0.3036  |
 
+</div>
+
+---
+
+### Summary
 
 - The **Hybrid (ViT + Swin)** variant successfully combines the strengths of both transformers, producing visually pleasing results with balanced color and structure.  
 - Using **ViT only** preserves structural details but may slightly underperform in overall color enhancement.  
