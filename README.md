@@ -1,6 +1,6 @@
 # VSD-Net: Underwater Image Enhancement
 
-This repository contains the **VSD-Net** notebook for underwater image enhancement.  
+This repository contains the **VSD-Net** notebook for underwater image enhancement. 
 
 > ⚠️ **Note:** This project is in **Jupyter Notebook format** (`.ipynb`).  
 > You need to **download the files** to run them, either on Google Colab or locally with VSCode/Python.
